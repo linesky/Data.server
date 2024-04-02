@@ -1,7 +1,9 @@
+//#!/usr/bin/tcc -run
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+
 #include <time.h>
 
 void title(char *t){
