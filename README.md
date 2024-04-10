@@ -1,2 +1,3 @@
-# Data.server
-Tcc date server ; server a date
+# gcc.commands
+
+command line in roots isolate
