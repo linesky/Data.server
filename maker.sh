@@ -18,6 +18,8 @@ gcc -o mktp mktp.c
 gcc -o rand rand.c
 gcc -o rigths rigths.c
 gcc -o seq seq.c
+gcc -o echo echo.c
+gcc -o printf printf.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -39,6 +41,10 @@ cp  ./mid  $roots/usr/bin
 cp  ./mid  $roots/bin
 cp  ./ltrim  $roots/usr/bin
 cp  ./ltrim  $roots/bin
+cp  ./echo  $roots/usr/bin
+cp  ./echo  $roots/bin
+cp  ./printf  $roots/usr/bin
+cp  ./printf  $roots/bin
 cp  ./lower  $roots/usr/bin
 cp  ./lower  $roots/bin
 cp  ./locate  $roots/usr/bin
@@ -87,7 +93,7 @@ while IFS= read -r l1
 do
 
 rt="$roots$l1"
-printf "$rt\n"
+#printf "$rt\n"
 cp "$l1" "$rt" 
 done < "$tmps2"
 
