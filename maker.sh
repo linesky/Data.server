@@ -24,6 +24,7 @@ gcc -o cp cp.c
 gcc -o date date.c
 gcc -o for for.c
 gcc -o grep grep.c
+gcc -o head head.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -75,6 +76,8 @@ cp  ./filename $roots/usr/bin
 cp  ./filename $roots/bin
 cp  ./cp $roots/usr/bin
 cp  ./cp $roots/bin
+cp  ./head $roots/usr/bin
+cp  ./head $roots/bin
 cp  ./grep $roots/usr/bin
 cp  ./grep $roots/bin
 cp  ./for $roots/usr/bin
