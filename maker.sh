@@ -25,6 +25,7 @@ gcc -o date date.c
 gcc -o for for.c
 gcc -o grep grep.c
 gcc -o head head.c
+gcc -o ls ls.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -90,8 +91,8 @@ cp  /usr/bin/bash $roots/usr/bin
 cp  /usr/bin/bash $roots/bin
 cp  /usr/bin/sh $roots/usr/bin
 cp  /usr/bin/sh $roots/bin
-cp  /usr/bin/ls $roots/usr/bin
-cp  /usr/bin/ls $roots/bin
+cp  ./ls $roots/usr/bin
+cp  ./ls $roots/bin
 
 printf "" > $roots/dev/null
 printf "" > $roots/dev/stdio
