@@ -20,6 +20,7 @@ gcc -o rigths rigths.c
 gcc -o seq seq.c
 gcc -o echo echo.c
 gcc -o printf printf.c
+gcc -o cp cp.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -67,6 +68,8 @@ cp  ./color $roots/usr/bin
 cp  ./color $roots/bin
 cp  ./filename $roots/usr/bin
 cp  ./filename $roots/bin
+cp  ./cp $roots/usr/bin
+cp  ./cp $roots/bin
 cp  ./args.sh $roots/usr/bin
 cp  ./args.sh $roots/bin
 cp  /usr/bin/bash $roots/usr/bin
