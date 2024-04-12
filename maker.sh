@@ -27,6 +27,7 @@ gcc -o grep grep.c
 gcc -o head head.c
 gcc -o ls ls.c
 gcc -o nl nl.c
+gcc -o more more.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -52,6 +53,8 @@ cp  ./ltrim  $roots/usr/bin
 cp  ./ltrim  $roots/bin
 cp  ./echo  $roots/usr/bin
 cp  ./echo  $roots/bin
+cp  ./more  $roots/usr/bin
+cp  ./more  $roots/bin
 cp  ./printf  $roots/usr/bin
 cp  ./printf  $roots/bin
 cp  ./lower  $roots/usr/bin
