@@ -29,6 +29,7 @@ gcc -o ls ls.c
 gcc -o nl nl.c
 gcc -o more more.c
 gcc -o sed sed.c
+gcc -o cat cat.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -38,8 +39,8 @@ mkdir -p $roots/lib
 mkdir -p $roots/dev
 mkdir -p $roots/boot
 mkdir -p $roots/lib/i386-linux-gnu
-cp  /usr/bin/cat  $roots/usr/bin
-cp  /usr/bin/cat  $roots/bin
+cp  ./cat  $roots/usr/bin
+cp  ./cat  $roots/bin
 cp  ./seq  $roots/usr/bin
 cp  ./seq  $roots/bin
 cp  ./rigths  $roots/usr/bin
@@ -94,6 +95,8 @@ cp  ./sed $roots/usr/bin
 cp  ./sed $roots/bin
 cp  ./date $roots/usr/bin
 cp  ./date $roots/bin
+cp  ./cat $roots/usr/bin
+cp  ./cat $roots/bin
 cp  ./args.sh $roots/usr/bin
 cp  ./args.sh $roots/bin
 cp  /usr/bin/bash $roots/usr/bin
