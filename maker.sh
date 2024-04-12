@@ -23,6 +23,7 @@ gcc -o printf printf.c
 gcc -o cp cp.c
 gcc -o date date.c
 gcc -o for for.c
+gcc -o grep grep.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -32,6 +33,8 @@ mkdir -p $roots/lib
 mkdir -p $roots/dev
 mkdir -p $roots/boot
 mkdir -p $roots/lib/i386-linux-gnu
+cp  /usr/bin/cat  $roots/usr/bin
+cp  /usr/bin/cat  $roots/bin
 cp  ./seq  $roots/usr/bin
 cp  ./seq  $roots/bin
 cp  ./rigths  $roots/usr/bin
@@ -72,6 +75,8 @@ cp  ./filename $roots/usr/bin
 cp  ./filename $roots/bin
 cp  ./cp $roots/usr/bin
 cp  ./cp $roots/bin
+cp  ./grep $roots/usr/bin
+cp  ./grep $roots/bin
 cp  ./for $roots/usr/bin
 cp  ./for $roots/bin
 cp  ./date $roots/usr/bin
