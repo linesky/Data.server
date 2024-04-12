@@ -28,6 +28,7 @@ gcc -o head head.c
 gcc -o ls ls.c
 gcc -o nl nl.c
 gcc -o more more.c
+gcc -o sed sed.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -89,6 +90,8 @@ cp  ./grep $roots/usr/bin
 cp  ./grep $roots/bin
 cp  ./for $roots/usr/bin
 cp  ./for $roots/bin
+cp  ./sed $roots/usr/bin
+cp  ./sed $roots/bin
 cp  ./date $roots/usr/bin
 cp  ./date $roots/bin
 cp  ./args.sh $roots/usr/bin
