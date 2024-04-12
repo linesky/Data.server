@@ -22,6 +22,7 @@ gcc -o echo echo.c
 gcc -o printf printf.c
 gcc -o cp cp.c
 gcc -o date date.c
+gcc -o for for.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -71,6 +72,8 @@ cp  ./filename $roots/usr/bin
 cp  ./filename $roots/bin
 cp  ./cp $roots/usr/bin
 cp  ./cp $roots/bin
+cp  ./for $roots/usr/bin
+cp  ./for $roots/bin
 cp  ./date $roots/usr/bin
 cp  ./date $roots/bin
 cp  ./args.sh $roots/usr/bin
