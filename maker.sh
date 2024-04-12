@@ -26,6 +26,7 @@ gcc -o for for.c
 gcc -o grep grep.c
 gcc -o head head.c
 gcc -o ls ls.c
+gcc -o nl nl.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -77,6 +78,8 @@ cp  ./filename $roots/usr/bin
 cp  ./filename $roots/bin
 cp  ./cp $roots/usr/bin
 cp  ./cp $roots/bin
+cp  ./nl $roots/usr/bin
+cp  ./nl $roots/bin
 cp  ./head $roots/usr/bin
 cp  ./head $roots/bin
 cp  ./grep $roots/usr/bin
