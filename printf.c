@@ -11,11 +11,16 @@ char *argv[];
 	int idx=0;
 	if(argc>1){
 	        char *token=strtok(argv[1],"%");
-		for (n=1;n<argc;n++){
+	        printf("%s",token);
+		   
+		for (n=1;n<argc-1;n++){
+		        
+		        
 		        
 		        token=strtok(0,"%");
 		        if(token==NULL)break;
-			printf("%s",argv[n]);
+		        if(n+1>argc)break;
+			printf("%s",argv[n+1]);
 			token=token+1;
 			printf("%s",token);
 		}
