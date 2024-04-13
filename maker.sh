@@ -30,6 +30,7 @@ gcc -o nl nl.c
 gcc -o more more.c
 gcc -o sed sed.c
 gcc -o cat cat.c
+gcc -o tail tail.c
 mkdir -p $roots
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
@@ -39,6 +40,8 @@ mkdir -p $roots/lib
 mkdir -p $roots/dev
 mkdir -p $roots/boot
 mkdir -p $roots/lib/i386-linux-gnu
+cp  ./tail  $roots/usr/bin
+cp  ./tail  $roots/bin
 cp  ./cat  $roots/usr/bin
 cp  ./cat  $roots/bin
 cp  ./seq  $roots/usr/bin
