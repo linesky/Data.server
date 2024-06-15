@@ -1,120 +1,114 @@
 printf "\x1bc\x1b[43;37m"
-roots=$(pwd)/roots
-tmps=/tmp/lists.txt
-tmps2=/tmp/lists2.txt
-gcc -o args args.c
-gcc -o filename filename.c
-gcc -o color color.c
-gcc -o char char.c
-gcc -o cmd command.c
-gcc -o express express.c
-gcc -o lefts lefts.c
-gcc -o len len.c
-gcc -o locate locate.c
-gcc -o lower lower.c
-gcc -o ltrim ltrim.c
-gcc -o mid mid.c
-gcc -o mktp mktp.c
-gcc -o rand rand.c
-gcc -o rigths rigths.c
-gcc -o seq seq.c
-gcc -o echo echo.c
-gcc -o printf printf.c
-gcc -o cp cp.c
-gcc -o date date.c
-gcc -o for for.c
-gcc -o grep grep.c
-gcc -o head head.c
-gcc -o ls ls.c
-gcc -o nl nl.c
-gcc -o more more.c
-gcc -o sed sed.c
-gcc -o cat cat.c
-gcc -o tail tail.c
-mkdir -p $roots
+roots=/mnt/isos
+tmps=/mnt/isos/tmp/lists.txt
+tmps2=/mnt/isos/tmp/lists2.txt
+mkdir /tmp/examples > /dev/null
+gcc -o /tmp/examples/args args.c
+gcc -o /tmp/examples/filename filename.c
+gcc -o /tmp/examples/color color.c
+gcc -o /tmp/examples/char char.c
+gcc -o /tmp/examples/cmd command.c
+gcc -o /tmp/examples/express express.c
+gcc -o /tmp/examples/lefts lefts.c
+gcc -o /tmp/examples/len len.c
+gcc -o /tmp/examples/locate locate.c
+gcc -o /tmp/examples/lower lower.c
+gcc -o /tmp/examples/ltrim ltrim.c
+gcc -o /tmp/examples/mid mid.c
+gcc -o /tmp/examples/mktp mktp.c
+gcc -o /tmp/examples/rand rand.c
+gcc -o /tmp/examples/rigths rigths.c
+gcc -o /tmp/examples/seq seq.c
+gcc -o /tmp/examples/echo echo.c
+gcc -o /tmp/examples/printf printf.c
+gcc -o /tmp/examples/cp cp.c
+gcc -o /tmp/examples/date date.c
+gcc -o /tmp/examples/for for.c
+gcc -o /tmp/examples/grep grep.c
+gcc -o /tmp/examples/head head.c
+gcc -o /tmp/examples/ls ls.c
+gcc -o /tmp/examples/nl nl.c
+gcc -o /tmp/examples/more more.c
+gcc -o /tmp/examples/sed sed.c
+gcc -o /tmp/examples/cat cat.c
+gcc -o /tmp/examples/tail tail.c
+rm /tmp/my.img > /dev/null
+dd if=/dev/zero of="/tmp/my.img" bs=1k count=180000
+dd if=/dev/zero of="/tmp/image" bs=1k count=5000
+sudo chmod 777 "/tmp/my.img"
+sudo chmod 777 "/tmp/image"
+echo hello
+sudo mkfs.vfat "/tmp/my.img" 
+sudo mkfs.vfat "/tmp/image" 
+sudo chmod 777 "/tmp/my.img"
+sudo chmod 777 "/tmp/image"
+mkdir $roots
+sudo mount "/tmp/my.img" $roots -o loop -t vfat 
+mkdir -p $roots/tmp
+printf "" > $tmps
+printf "" > $tmps2
+sudo chmod 777 $tmps
+sudo chmod 777 $tmps2
+mkdir -p $roots/boot
 mkdir -p $roots/usr
 mkdir -p $roots/usr/bin
 mkdir -p $roots/bin
-mkdir -p $roots/tmp
+mkdir -p $roots/etc
 mkdir -p $roots/lib
 mkdir -p $roots/dev
 mkdir -p $roots/boot
+mkdir -p $roots/proc
+mkdir -p $roots/proc/self
+mkdir -p $roots/usr/include
 mkdir -p $roots/lib/i386-linux-gnu
-cp  ./tail  $roots/usr/bin
-cp  ./tail  $roots/bin
-cp  ./cat  $roots/usr/bin
-cp  ./cat  $roots/bin
-cp  ./seq  $roots/usr/bin
-cp  ./seq  $roots/bin
-cp  ./rigths  $roots/usr/bin
-cp  ./rigths  $roots/bin
-cp  ./rand  $roots/usr/bin
-cp  ./rand  $roots/bin
-cp  ./mktp  $roots/usr/bin
-cp  ./mktp  $roots/bin
-cp  ./mid  $roots/usr/bin
-cp  ./mid  $roots/bin
-cp  ./ltrim  $roots/usr/bin
-cp  ./ltrim  $roots/bin
-cp  ./echo  $roots/usr/bin
-cp  ./echo  $roots/bin
-cp  ./more  $roots/usr/bin
-cp  ./more  $roots/bin
-cp  ./printf  $roots/usr/bin
-cp  ./printf  $roots/bin
-cp  ./lower  $roots/usr/bin
-cp  ./lower  $roots/bin
-cp  ./locate  $roots/usr/bin
-cp  ./locate  $roots/bin
-cp  ./len  $roots/usr/bin
-cp  ./len  $roots/bin
-cp  ./lefts  $roots/usr/bin
-cp  ./lefts  $roots/bin
-cp  ./express $roots/usr/bin
-cp  ./express $roots/bin
-cp  ./run.shell $roots/usr/bin
-cp  ./run.shell $roots/bin
-cp  ./cmd $roots/usr/bin
-cp  ./cmd $roots/bin
-cp  ./char $roots/usr/bin
-cp  ./char $roots/bin
-cp  ./args $roots/usr/bin
-cp  ./args $roots/bin
-cp  ./color $roots/usr/bin
-cp  ./color $roots/bin
-cp  ./filename $roots/usr/bin
-cp  ./filename $roots/bin
-cp  ./cp $roots/usr/bin
-cp  ./cp $roots/bin
-cp  ./nl $roots/usr/bin
-cp  ./nl $roots/bin
-cp  ./head $roots/usr/bin
-cp  ./head $roots/bin
-cp  ./grep $roots/usr/bin
-cp  ./grep $roots/bin
-cp  ./for $roots/usr/bin
-cp  ./for $roots/bin
-cp  ./sed $roots/usr/bin
-cp  ./sed $roots/bin
-cp  ./date $roots/usr/bin
-cp  ./date $roots/bin
-cp  ./cat $roots/usr/bin
-cp  ./cat $roots/bin
-cp  ./args.sh $roots/usr/bin
-cp  ./args.sh $roots/bin
+mkdir -p $roots/mnt
+mkdir -p $roots/data
+mkdir -p $roots/home
+mkdir -p $roots/root
+printf "#!/bin/bash\n/bin/bash --login" > $roots/linuxrc 
+unzip -u ./file/CD_root.zip -d $roots
+gzip /tmp/image
+mv /tmp/image.gz $roots/boot
+cp /boot/vmlinuz $roots/boot
+cp /vmlinuz $roots/boot
+cp ./file/syslinux.cfg $roots/boot/syslinux
+cp /lib/i386-linux-gnu/ld-linux.so.* $roots/lib/i386-linux-gnu/
+cp /lib/i386-linux-gnu/libc.so.* $roots/lib/i386-linux-gnu/
+cp  /lib/i386-linux-gnu/crt*.* $roots/lib/i386-linux-gnu/
+cp  /lib/i386-linux-gnu/libc.a $roots/usr/bin
+cp  /lib/i386-linux-gnu/libc.a $roots/bin
+cp  /lib/i386-linux-gnu/libc.a $roots/lib/i386-linux-gnu/
 cp  /usr/bin/bash $roots/usr/bin
 cp  /usr/bin/bash $roots/bin
+cp  /usr/bin/ld $roots/usr/bin
+cp  /usr/bin/ld $roots/bin
 cp  /usr/bin/sh $roots/usr/bin
 cp  /usr/bin/sh $roots/bin
-cp  ./ls $roots/usr/bin
-cp  ./ls $roots/bin
-
+cp  /usr/bin/sh $roots/usr/bin
+cp  /usr/bin/sh $roots/bin
+cp  /usr/bin/ls $roots/usr/bin
+cp  /usr/bin/ls $roots/bin
+cp  /usr/bin/ldd $roots/usr/bin
+cp  /usr/bin/ldd $roots/bin
+cp  /usr/bin/cat $roots/usr/bin
+cp  /usr/bin/cat $roots/bin
+echo hello
+cp  /tmp/examples/* $roots/usr/bin
+cp  /tmp/examples/* $roots/bin
 printf "" > $roots/dev/null
 printf "" > $roots/dev/stdio
 printf "" > $roots/dev/stdout
 printf "" > $roots/dev/stdin
+printf "" > $roots/dev/sda
+printf "" > $roots/dev/sda1
+printf "" > $roots/dev/data
+printf "" > $roots/dev/ram0
+printf "" > $roots/dev/hda
+printf "" > $roots/dev/hda0
 chmod 777 $roots/bin/*
 chmod 777 $roots/usr/bin/*
+sudo chmod 777 $tmps
+sudo chmod 777 $tmps2
 printf "" > $tmps
 list1=$(ls $roots/usr/bin/*)
 for l1 in $list1
@@ -126,10 +120,10 @@ while IFS= read -r l1
 do
 
 rt="$roots$l1"
-#printf "$rt\n"
 cp "$l1" "$rt" 
 done < "$tmps2"
-
-
-
+sudo umount  $roots
+sudo mount /tmp/my.img $roots -o loop=/dev/loop1  -t vfat
+sudo syslinux /dev/loop1
+sudo umount  $roots
 
